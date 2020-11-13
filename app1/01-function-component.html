@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Component</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- React e ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- JS -->
+    <script type="text/babel">
+        function MeuComponent() {
+            var name = 'André';
+            var lastName = 'Lima'
+            return (
+                <div>
+                    <h1>Olá React</h1>
+                    <p>O meu nome é {name} {lastName}</p>
+                </div>
+            )
+        }
+        const root = document.getElementById('root');
+        ReactDOM.render(<MeuComponent />, root);
+    </script>
+</body>
+
+</html>

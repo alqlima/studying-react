@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incluir o ReactDOM</title>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- React e ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- JS -->
+    <script type="text/babel">
+        function Tempo() {
+            // jsx a apresentar
+            const conteudo = (
+                <div>
+                    <h3>Tempo Atual</h3>
+                    <p>Estamos na seguinte hora: {new Date().toLocaleTimeString()}</p>
+                </div>
+            )
+            ReactDOM.render(
+                conteudo,
+                document.getElementById('root')
+            )
+        }
+        setInterval(Tempo, 1000);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent e Chil Component</title>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- React e ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- JS -->
+    <script type="text/babel">
+        class Identificacao extends React.Component {
+            constructor() {
+                super()
+                this.state = {
+                    name: 'André',
+                    age: '51'
+                }
+            }
+            render() {
+                this.state.name = 'André Queiroz'
+                return (
+                    <div>
+                        <Nome name={this.state.name} />
+                        <Idade age={this.state.age} />
+                    </div>
+                )
+            }
+        }
+        class Nome extends React.Component {
+            render() {
+                return (
+                    <p>Nome: {this.props.name}</p>
+                )
+            }
+        }
+        class Idade extends React.Component {
+            render() {
+                return (
+                    <p>Idade: {this.props.age}</p>
+                )
+            }
+        }
+
+
+        ReactDOM.render(
+            <Identificacao />,
+            document.getElementById('root')
+        )
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent e Chil Component</title>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- React e ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- JS -->
+    <script type="text/babel">
+        class CompNome extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    name: this.props.nome_inicial
+                }
+                // binding
+                this.cmd_click = this.cmd_click.bind(this)
+            }
+            //--------------------------------------------------
+            cmd_click() {
+                this.setState({ name: this.props.nome_final })
+            }
+            //--------------------------------------------------
+            render() {
+                return (
+                    <div>
+                        <p>Nome: {this.state.name}</p>
+                        <button onClick={this.cmd_click}>Alterar</button>
+                    </div>
+                )
+            }
+        }
+        //--------------------------------------------------
+        class App extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <hr />
+                        <h3>Exercício</h3>
+                        <hr />
+                        <CompNome nome_inicial='André' nome_final='Silvana' />
+                        <CompNome nome_inicial='André' nome_final='Felipe' />
+                        <CompNome nome_inicial='Luís' nome_final='Felipe' />
+                    </div>
+                )
+            }
+        }
+        //--------------------------------------------------
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        )
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passar argumentos de child para pai</title>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- React e ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- JS -->
+    <script type="text/babel">
+        // parent
+        class App extends React.Component {
+
+            metodo(texto) {
+                console.log(texto)
+            }
+            render() {
+                return (
+                    <div>
+                        <p>Texto do componente pai</p>
+                        <Child e={this.metodo} />
+                    </div>
+                )
+            }
+        }
+        // child
+        class Child extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <button onClick={() => this.props.e('Olá Mundo!')}>Clicar</button>
+                    </div>
+                )
+            }
+        }
+        //--------------------------------------------------
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        )
+
+    </script>
+</body>
+
+</html>

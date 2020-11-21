@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renderização Condicional</title>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- React e ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- JS -->
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor() {
+                super()
+                this.state = { tempoBom: true }
+            }
+            render() {
+                return (
+                    this.state.tempoBom && <p>O tempo está bom!!!!!</p>
+                )
+                //------------------------------------------
+                //metodo ternário(condição ternaria)
+                // return (
+                //     this.state.tempoBom ? <p>O tempo está bom</p> : <p>O tempo está ruim</p>
+                // )
+                //------------------------------------------
+                // usando variável
+                // let texto
+                // if (this.state.tempoBom) {
+                //     texto = <p>O tempo está bom</p>
+                // } else {
+                //     texto = <p>O tempo está ruim</p>
+                // }
+                // return texto
+                //------------------------------------------
+                // if e else
+                //if (this.state.tempoBom) {
+                //    return <p>O tempo está bom</p>
+                // } else {
+                //    return <p>O tempo está ruim</p>
+                //}
+            }
+        }
+        //--------------------------------------------------
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        )
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS no React</title>
+    <style>
+        .color-red {
+            color: red;
+        }
+
+        .size {
+            font-size: 2em;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <!-- React e ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- JS -->
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+            render() {
+                let cor = this.props.cor ? "color-red" : "";
+                let tamanho = this.props.tamanho ? "size" : "";
+                return (
+                    <div>
+                        <p className={`${tamanho} ${cor}`}>Texto com estilo</p>
+                    </div >
+                )
+            }
+        }
+        //--------------------------------------------------
+        ReactDOM.render(
+            <App cor={true} tamanho={false} />,
+            document.getElementById('root')
+        )
+
+
+
+    </script>
+</body>
+
+</html>

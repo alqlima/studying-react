@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+</head>
+
+<body>
+    <!-- <h1 style="color: red;">Título</h1> -->
+    <div id="root"></div>
+
+    <!-- React e ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Babel -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- JS -->
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor() {
+                super()
+                this.state = {
+                    username: '',
+                    password: ''
+                }
+            }
+            alterarUsername = e => {
+                this.setState({ username: e.target.value })
+            }
+            alterarPassword = e => {
+                this.setState({ password: e.target.value })
+            }
+            submeterForm = e => {
+                console.log("username: " + this.state.username)
+                console.log("password: " + this.state.password)
+                e.preventDefault()
+            }
+            render() {
+                return (
+                    <form onSubmit={this.submeterForm}>
+                        <input type="text" value={this.state.username} onChange={this.alterarUsername} placeholder="Username" />
+                        <br />
+                        <input type="password" value={this.state.password} onChange={this.alterarPassword} placeholder="Password" />
+                        <br />
+                        <input type="submit" value="Entrar" />
+                    </form>
+
+                )
+            }
+        }
+
+
+        //--------------------------------------------------
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        )
+
+
+
+    </script>
+</body>
+
+</html>
